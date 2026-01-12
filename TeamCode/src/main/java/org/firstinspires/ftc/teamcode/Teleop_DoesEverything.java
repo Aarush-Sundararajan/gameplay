@@ -36,6 +36,8 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ServoControllerEx;
+import com.qualcomm.robotcore.hardware.configuration.annotations.ServoTypes;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /*
@@ -77,9 +79,21 @@ public class Teleop_DoesEverything extends LinearOpMode {
     private DcMotor frontRightDrive = null;
     private DcMotor backRightDrive = null;
 
+    private DcMotor shootLeft = null;
+
+    private DcMotor shootRight = null;
+
+    private DcMotor intake = null;
+
+
+
+
     private Servo s1 = null;
 
     private CRServo s2 = null;
+
+
+    private Servo s3 = null;
 
     @Override
     public void runOpMode() {
@@ -90,8 +104,12 @@ public class Teleop_DoesEverything extends LinearOpMode {
         backLeftDrive = hardwareMap.get(DcMotor.class, "lb");
         frontRightDrive = hardwareMap.get(DcMotor.class, "rf");
         backRightDrive = hardwareMap.get(DcMotor.class, "rr");
+        intake = hardwareMap.get(DcMotor.class,"intake");
+        shootLeft = hardwareMap.get(DcMotor.class,"sLeft");
+        shootRight = hardwareMap.get(DcMotor.class,"sRight");
         s1 = hardwareMap.get(Servo.class, "s1");
         s2 = hardwareMap.get(CRServo.class, "s2");
+        s3 = hardwareMap.get(Servo.class, "s3");
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -108,9 +126,9 @@ public class Teleop_DoesEverything extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            frontLeftDrive.setPower(0);
-            frontRightDrive.setPower(0);
-            backRightDrive.setPower(0);
+            shootLeft.setPower(0);
+            shootRight.setPower(0);
+            intake.setPower(0);
             s2.setPower(0);
 
             if(gamepad1.right_bumper){
@@ -123,19 +141,19 @@ public class Teleop_DoesEverything extends LinearOpMode {
             }
 
             while (gamepad1.x){
-                frontLeftDrive.setPower(-1);
+                intake.setPower(-1);
             }
             while (gamepad1.y){
-                frontLeftDrive.setPower(1);
+                intake.setPower(1);
             }
 
             while(gamepad1.a){
-                frontRightDrive.setPower(1);
-                backRightDrive.setPower(-1);
+                shootRight.setPower(1);
+                shootLeft.setPower(-1);
             }
             while(gamepad1.b){
-                frontRightDrive.setPower(-1);
-                backRightDrive.setPower(1);
+                shootRight.setPower(-1);
+                shootLeft.setPower(1);
             }
 
             while(gamepad1.dpad_up){
@@ -145,10 +163,19 @@ public class Teleop_DoesEverything extends LinearOpMode {
                 s2.setPower(-1);
             }
 
+            if(gamepad1.right_trigger > 0.1){
+                s3.setPosition(0.9);
+                telemetry.addLine("signa");
+            }
+            if(gamepad1.left_trigger > 0.1){
+                s3.setPosition(0.3);
+            }
 
 
 
 
 
 
+
+;
         }}}
