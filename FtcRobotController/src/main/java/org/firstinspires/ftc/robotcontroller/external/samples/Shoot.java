@@ -64,9 +64,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list
  */
 
-@TeleOp(name="TestGameplay", group="Linear OpMode")
+@TeleOp(name="ShootGameplay", group="Linear OpMode")
 
-public class BasicOmniOpMode_Linear extends LinearOpMode {
+public class Shoot extends LinearOpMode {
 
     // Declare OpMode members for each of the 4 motors.
     private ElapsedTime runtime = new ElapsedTime();
@@ -112,9 +112,7 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
         while (opModeIsActive()) {
 
                 backRightDrive.setPower(1);
-                sleep(15);
-                backRightDrive.setPower(-1);
-
+                backLeftDrive.setPower(1);
 
 
 
@@ -140,4 +138,4 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
 
             // Show the elapsed game time and wheel power.
 
-    }}}
+        }}}
