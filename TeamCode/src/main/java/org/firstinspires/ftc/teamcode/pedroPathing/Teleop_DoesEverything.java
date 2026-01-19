@@ -177,15 +177,15 @@ public class Teleop_DoesEverything extends LinearOpMode {
             }
 
             if (gamepad2.x){
-                intake.setPower(-1);
-            }else{intake.setPower(0);}
+                intake.setPower(0);
+            }
             if (gamepad2.y){
                 intake.setPower(1);
-            }else {intake.setPower(0);}
+            }
 
             if (gamepad2.a){
-                shootRight.setPower(0.8);
-                shootLeft.setPower(-0.8);
+                shootRight.setPower(1);
+                shootLeft.setPower(-1);
             }else{
                 shootRight.setPower(0);
                 shootLeft.setPower(0);

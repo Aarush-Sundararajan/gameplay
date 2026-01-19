@@ -44,8 +44,8 @@ public class AutoBottomRed extends OpMode {
     private final Pose p2e = new Pose(125.48815165876776, 74.21327014218008, Math.toRadians(355)); //reduced
     private final Pose p2c1 = new Pose(66.45023696682465, 87.98104265402844);
 
-    private final Pose p3e = new Pose(130.39810426540285, 73.25592417061613, Math.toRadians(0)); //reduced
-    private final Pose p3c1 = new Pose(121.92417061611374, 70.77725118483411);
+    private final Pose p3e = new Pose(130.39810426540285, 71.25592417061613, Math.toRadians(0)); //reduced
+    private final Pose p3c1 = new Pose(121.92417061611374, 68.77725118483411);
 
     private final Pose p4e = new Pose(85.1042654028436, 88.9526066350711, Math.toRadians(45));
 
@@ -116,6 +116,7 @@ public class AutoBottomRed extends OpMode {
 
             case Shoot1:
                 if (!follower.isBusy() && pathTimer.getElapsedTimeSeconds() > 2) {
+                    follower.setMaxPower(0.5);
                     follower.followPath(driveP2, true);
                     intake.setPower(1);
                     setPathState(PathState.Path2);
@@ -125,7 +126,7 @@ public class AutoBottomRed extends OpMode {
             case Path2:
                 if (!follower.isBusy()) {
                     follower.followPath(driveP3, true);
-                    intake.setPower(0.3);
+
                     setPathState(PathState.Path3);
                 }
                 break;
@@ -138,6 +139,7 @@ public class AutoBottomRed extends OpMode {
 
             case Release:
                 if (!follower.isBusy() && pathTimer.getElapsedTimeSeconds() > 1) {
+                    follower.setMaxPower(0.99);
                     follower.followPath(driveP4, true);
                     setPathState(PathState.Path4);
                 }
@@ -151,38 +153,43 @@ public class AutoBottomRed extends OpMode {
 
             case Shoot2:
                 if (!follower.isBusy() && pathTimer.getElapsedTimeSeconds() > 2) {
+                    follower.setMaxPower(0.5);
                     follower.followPath(driveP5, true);
-                    intake.setPower(1);
+
                     setPathState(PathState.Path5);
                 }
                 break;
 
             case Path5:
                 if (!follower.isBusy()) {
+                    follower.setMaxPower(0.99);
                     follower.followPath(driveP6, true);
-                    intake.setPower(0.3);
+
                     setPathState(PathState.Path6);
                 }
                 break;
 
             case Path6:
                 if (!follower.isBusy()) {
+                    follower.setMaxPower(0.99);
                     setPathState(PathState.Shoot3);
                 }
                 break;
 
             case Shoot3:
                 if (!follower.isBusy() && pathTimer.getElapsedTimeSeconds() > 2) {
+                    follower.setMaxPower(0.5);
                     follower.followPath(driveP7, true);
-                    intake.setPower(1);
+
                     setPathState(PathState.Path7);
                 }
                 break;
 
             case Path7:
                 if (!follower.isBusy()) {
+                    follower.setMaxPower(0.99);
                     follower.followPath(driveP8, true);
-                    intake.setPower(0.3);
+
                     setPathState(PathState.Path8);
                 }
                 break;

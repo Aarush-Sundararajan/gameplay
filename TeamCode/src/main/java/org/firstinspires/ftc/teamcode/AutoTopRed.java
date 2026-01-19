@@ -37,8 +37,8 @@ public class AutoTopRed extends OpMode {
 
     // Mirrored over field centerline (x' = 145 - x), y unchanged, heading' = PI - heading (wrapped)
     private final Pose startPose = new Pose(123.29383886255924, 122.65402843601899, Math.toRadians(36));
-    private final Pose p1e      = new Pose(84.7345971563981,  83.43127962085308,  Math.toRadians(45));
-    private final Pose p2e      = new Pose(125.29383886255925, 83.82464454976302, Math.toRadians(335));
+    private final Pose p1e  = new Pose(84.7345971563981,  83.43127962085308,  Math.toRadians(45));
+    private final Pose p2e  = new Pose(125.29383886255925, 83.82464454976302, Math.toRadians(335));
 
     private final Pose p3e  = new Pose(128.62085308056873, 71.07109004739335, Math.toRadians(0));
     private final Pose p3c1 = new Pose(110.82464454976304, 72.84123222748815);
@@ -48,8 +48,7 @@ public class AutoTopRed extends OpMode {
 
     private final Pose p5e  = new Pose(124.86255924170616, 59.80568720379148, Math.toRadians(355));
     private final Pose p5c1 = new Pose(61.62796208530804,  55.120853080568736);
-
-    private final Pose p6e  = new Pose(83.5781990521327,  11.260663507109001, Math.toRadians(66));
+    private final Pose p6e = new Pose(86.3127962085308, 15.758293838862556, Math.toRadians(66));
     private final Pose p6c1 = new Pose(88.77014218009479, 44.42890995260664);
     private final Pose p6c2 = new Pose(100.760663507109,  59.760663507109);
 
@@ -57,7 +56,7 @@ public class AutoTopRed extends OpMode {
     private final Pose p7c1 = new Pose(62.25118483412322,  42.654028436018955);
     private final Pose p7c2 = new Pose(94.55924170616113,  30.533175355450233);
 
-    private final Pose p8e  = new Pose(84.22274881516587, 11.767772511848342, Math.toRadians(66));
+    private final Pose p8e = new Pose(86.3127962085308, 15.758293838862556, Math.toRadians(66));
 
     private PathChain driveP1, driveP2, driveP3, driveP4, driveP5, driveP6, driveP7, driveP8;
 
